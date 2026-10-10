@@ -6,11 +6,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Software development team in Nepal`,
+    default: `${site.name} — School software built in Nepal`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
   applicationName: site.name,
+  alternates: { canonical: "/" },
   keywords: [
     "school software Nepal",
     "school management software",
