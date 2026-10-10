@@ -1,9 +1,7 @@
 import { ButtonLink } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { HeroGraphic } from "@/components/ui/hero-graphic";
-import { site } from "@/lib/site";
-
-const meta = ["Nepal", "Software engineering", "Product design"];
+import { site, studentView } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -17,7 +15,7 @@ export function Hero() {
       <div className="shell grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
         <div className="flex flex-col items-start">
           <div className="rise" style={{ "--rise-delay": "40ms" } as React.CSSProperties}>
-            <Eyebrow>Independent software development team</Eyebrow>
+            <Eyebrow>School software, built in Nepal</Eyebrow>
           </div>
 
           <h1 className="mt-7 text-[clamp(2.55rem,7.2vw,5rem)] leading-[0.98] font-medium tracking-[-0.035em] text-ink">
@@ -54,10 +52,11 @@ export function Hero() {
           </div>
 
           <div
-            className="rise text-muted mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.7rem] tracking-[0.16em] uppercase"
+            className="rise mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.7rem] tracking-[0.16em] uppercase"
             style={{ "--rise-delay": "560ms" } as React.CSSProperties}
           >
-            {meta.map((item, i) => (
+            <span className="text-muted mr-1">Students see</span>
+            {studentView.map((item, i) => (
               <span key={item} className="flex items-center gap-4">
                 {i > 0 ? <span aria-hidden="true" className="bg-line-strong size-1 rounded-full" /> : null}
                 {item}

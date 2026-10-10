@@ -20,8 +20,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-muted-night max-w-[38ch] text-[0.93rem] leading-relaxed">
-              An independent software development team in Nepal, building digital products with
-              precision, purpose, and a commitment to quality.
+              An independent software development team in Nepal, building software for schools:
+              homework, classwork, attendance, and student progress.
             </p>
           </div>
 

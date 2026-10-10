@@ -32,21 +32,31 @@ export function About() {
 
           <Reveal delay={140}>
             <p className="mt-8 max-w-[54ch] text-[1.05rem] leading-[1.7] text-muted-night">
-              ArithmeticalNepal is a Nepal based software development team. We combine technical
-              thinking with creative problem solving, and we care about the part of the work most
-              teams skip: keeping a product dependable long after it ships.
+              ArithmeticalNepal is a Nepal based software development team. We build software for
+              schools, where a student should be able to open one app and see the homework set for
+              the week, the classwork they handed in, their attendance record, and how they are
+              doing across the term.
             </p>
           </Reveal>
 
           <Reveal delay={200}>
             <p className="mt-5 max-w-[54ch] text-[1.05rem] leading-[1.7] text-muted-night">
-              The team stays deliberately small so that the people who scope the work are the people
-              who build it. Decisions are made close to the problem, feedback loops are short, and
-              nothing is passed along and forgotten about.
+              That kind of software has to be dependable. A student checks it on a phone, on a
+              school network that is having a bad afternoon, often with a teacher waiting on the
+              other side. We combine technical thinking with creative problem solving and we care
+              about the part of the work most teams skip: keeping it working long after it ships.
             </p>
           </Reveal>
 
           <Reveal delay={260}>
+            <p className="mt-5 max-w-[54ch] text-[1.05rem] leading-[1.7] text-muted-night">
+              The team stays deliberately small so the people who scope the work are the people who
+              build it. Decisions sit close to the problem, feedback loops are short, and nothing
+              gets handed along and forgotten about.
+            </p>
+          </Reveal>
+
+          <Reveal delay={320}>
             <ButtonLink href="#contact" variant="inverse" className="mt-9">
               Work with us
             </ButtonLink>

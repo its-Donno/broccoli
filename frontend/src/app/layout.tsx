@@ -12,9 +12,10 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "software development Nepal",
-    "web development Nepal",
-    "custom software team",
+    "school software Nepal",
+    "school management software",
+    "student homework and attendance app",
+    "school app development",
     "ArithmeticalNepal",
   ],
   authors: [{ name: site.name }],
@@ -49,6 +50,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fontVariables} h-full antialiased`}>
+      <head>
+        {/* Scroll reveals need JavaScript. Without it, show everything. */}
+        <noscript>
+          <style>{`.reveal,.rise,.line-mask>span{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body className="flex min-h-full flex-col bg-paper text-ink">
         <a
           href="#main"

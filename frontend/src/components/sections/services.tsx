@@ -15,7 +15,7 @@ export function Services() {
                 What we <em className="text-accent font-serif italic">build</em>
               </>
             }
-            lede="These are the areas we work in. Every engagement starts by understanding the problem, then choosing the smallest honest solution for it."
+            lede="These are the areas we work in. Much of our work sits inside schools: student apps, teacher workflows, and the systems that connect them."
           />
         </div>
 

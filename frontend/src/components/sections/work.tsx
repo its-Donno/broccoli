@@ -76,7 +76,7 @@ export function Work() {
             index="05"
             eyebrow="Work"
             title="Built with purpose."
-            lede="We would rather show one project we can explain properly than a wall of logos. This space is reserved for work we are happy to stand behind."
+            lede="We are building software for schools. When a product is ready to show, it goes here: the problem, the approach, the stack, and a link where we are allowed to share it."
           />
           <Reveal delay={120} className="shrink-0">
             <ButtonLink href="#contact" variant="outline">

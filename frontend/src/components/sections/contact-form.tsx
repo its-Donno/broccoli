@@ -152,7 +152,7 @@ export function ContactForm() {
           rows={4}
           value={values.message}
           onChange={update("message")}
-          placeholder="What are you building, and what does success look like?"
+          placeholder="What does your school need? Homework, classwork, attendance, or something else?"
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
           className={cn(

@@ -8,10 +8,20 @@ export const site = {
   name: "ArithmeticalNepal",
   tagline: "Thoughtful software. Built for what comes next.",
   description:
-    "ArithmeticalNepal is an independent software development team from Nepal building digital products with precision, purpose, and a commitment to quality.",
+    "ArithmeticalNepal is an independent software development team from Nepal. We build school software where students can see their homework, classwork, attendance, and progress in one place.",
   location: "Nepal",
-  url: "https://arithmeticalnepal.com",
+  /** Override with NEXT_PUBLIC_SITE_URL once the domain is live. */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arithmeticalnepal.com",
 } as const;
+
+/** What a student opens the app to see. */
+export const studentView = [
+  "Homework",
+  "Classwork",
+  "Attendance",
+  "Results",
+  "Announcements",
+] as const;
 
 /** Verified presence only. Add handles here once they exist. */
 export const socialLinks = [
@@ -33,7 +43,7 @@ export const services = [
     title: "Web Development",
     summary:
       "Modern, responsive websites and web applications designed for usability, performance, and maintainability.",
-    capabilities: ["Design systems", "Front end architecture", "Performance budgets"],
+    capabilities: ["School portals", "Student web apps", "Admin dashboards"],
   },
   {
     id: "mobile",
@@ -41,7 +51,7 @@ export const services = [
     title: "Mobile Applications",
     summary:
       "Mobile experiences built around real user needs, smooth interactions, and reliable functionality.",
-    capabilities: ["Cross platform apps", "Offline behaviour", "Release pipelines"],
+    capabilities: ["Student app", "Parent updates", "Offline access"],
   },
   {
     id: "engineering",
@@ -49,7 +59,7 @@ export const services = [
     title: "Software Engineering",
     summary:
       "Custom software, application architecture, integrations, and practical solutions to complex problems.",
-    capabilities: ["Service architecture", "API design", "Third party integrations"],
+    capabilities: ["School information systems", "API design", "Third party integrations"],
   },
   {
     id: "design",
@@ -57,7 +67,7 @@ export const services = [
     title: "UI and UX Design",
     summary:
       "Intuitive interfaces, thoughtful user journeys, and visual systems that make software easier to use.",
-    capabilities: ["Interface design", "Prototyping", "Accessibility review"],
+    capabilities: ["Student journeys", "Teacher workflows", "Accessibility review"],
   },
   {
     id: "automation",
@@ -65,7 +75,7 @@ export const services = [
     title: "Automation and Digital Solutions",
     summary:
       "Tools and workflows that reduce repetitive work and improve efficiency.",
-    capabilities: ["Workflow automation", "Internal tooling", "Reporting"],
+    capabilities: ["Attendance automation", "Report generation", "Internal tooling"],
   },
   {
     id: "consulting",
@@ -73,7 +83,7 @@ export const services = [
     title: "Technical Consulting",
     summary:
       "Practical guidance on technology choices, architecture, development strategy, and product direction.",
-    capabilities: ["Architecture reviews", "Stack selection", "Delivery planning"],
+    capabilities: ["School system reviews", "Stack selection", "Delivery planning"],
   },
 ] as const;
 

@@ -183,24 +183,22 @@ export function Header() {
         ref={panelRef}
         tabIndex={-1}
         hidden={!open}
-        className="border-line bg-paper fixed inset-x-0 top-16 bottom-0 z-40 border-t outline-none lg:hidden"
+        className="border-line bg-paper fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t outline-none lg:hidden"
       >
-        <nav
-          aria-label="Mobile"
-          className="shell flex h-full flex-col justify-between gap-8 pt-10 pb-10"
-        >
+        {/* Mounted on open so the staggered entrance replays each time. */}
+        {open ? (
+          <nav
+            aria-label="Mobile"
+            className="shell flex min-h-full flex-col justify-between gap-8 pt-10 pb-10"
+          >
           <ul className="flex flex-col">
             {navigation.map((item, i) => (
               <li key={item.href} className="border-line border-b">
                 <a
                   href={item.href}
                   onClick={(event) => go(event, item.href)}
-                  className="group flex items-baseline gap-4 py-5"
-                  style={{
-                    animation: open
-                      ? `rise-in 0.6s var(--ease-out-expo) ${i * 55}ms both`
-                      : undefined,
-                  }}
+                  className="rise group flex items-baseline gap-4 py-5"
+                  style={{ "--rise-delay": `${i * 55}ms` } as React.CSSProperties}
                 >
                   <span className="font-mono text-[0.68rem] tracking-[0.2em] text-accent">
                     0{i + 1}
@@ -222,10 +220,11 @@ export function Header() {
               Start a Project
             </a>
             <p className="text-muted text-center text-[0.82rem]">
-              Independent software development team, based in Nepal.
+              School software, built in Nepal.
             </p>
           </div>
-        </nav>
+          </nav>
+        ) : null}
       </div>
     </header>
   );
