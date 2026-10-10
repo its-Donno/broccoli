@@ -80,19 +80,25 @@ export const services = [
 export const founders = [
   {
     id: "sijan-bahadur-kunwar",
+    index: "01",
     name: "Sijan Bahadur Kunwar",
     role: "Chief Executive Officer",
     initials: "SK",
     focus: "Company direction, strategy, product vision, and business development.",
     note: "Decides what we build and why, then makes sure the conditions to build it well exist.",
+    /** Add real profile URLs here. Nothing is rendered until a link exists. */
+    links: [] as ReadonlyArray<{ label: string; href: string }>,
   },
   {
     id: "abhinav-singh",
+    index: "02",
     name: "Abhinav Singh",
     role: "Chief Technology Officer",
     initials: "AS",
     focus: "Technical direction, software architecture, engineering quality, and implementation.",
     note: "Owns how the system is built, from structure and tooling through to the last review before release.",
+    /** Add real profile URLs here. Nothing is rendered until a link exists. */
+    links: [] as ReadonlyArray<{ label: string; href: string }>,
   },
 ] as const;
 
