@@ -52,34 +52,32 @@ export function Hero() {
           </div>
 
           <div
-            className="rise mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.7rem] tracking-[0.16em] uppercase"
+            className="rise mt-12 flex flex-col gap-3 font-mono text-[0.7rem] tracking-[0.16em] uppercase"
             style={{ "--rise-delay": "560ms" } as React.CSSProperties}
           >
-            <span className="text-muted mr-1">Students see</span>
-            {studentView.map((item, i) => (
-              <span key={item} className="flex items-center gap-4">
-                {i > 0 ? <span aria-hidden="true" className="bg-line-strong size-1 rounded-full" /> : null}
-                {item}
-              </span>
-            ))}
+            <span className="text-muted">Students see</span>
+            <span className="flex flex-wrap gap-x-6 gap-y-2">
+              {studentView.map((item) => (
+                <span key={item} className="flex items-center gap-2.5">
+                  <span aria-hidden="true" className="bg-accent inline-block h-px w-3" />
+                  {item}
+                </span>
+              ))}
+            </span>
           </div>
         </div>
 
         <div className="relative flex justify-center lg:justify-end">
           <div
-            className="rise relative w-full max-w-[30rem] text-ink"
+            className="rise w-full max-w-[30rem] text-ink"
             style={{ "--rise-delay": "260ms" } as React.CSSProperties}
           >
             <HeroGraphic className="aspect-square w-full" />
 
-            <p className="font-mono text-muted pointer-events-none absolute top-4 left-0 text-[0.65rem] tracking-[0.18em] uppercase sm:top-8 sm:left-2">
-              Fig. 01
-              <span className="mt-1 block">Inscribed construction</span>
-            </p>
-            <p className="font-mono text-muted pointer-events-none absolute right-0 bottom-4 text-[0.65rem] tracking-[0.18em] uppercase sm:right-2 sm:bottom-8">
-              27.7172&deg; N
-              <span className="mt-1 block">85.3240&deg; E</span>
-            </p>
+            <div className="text-muted mt-5 flex flex-col gap-1 font-mono text-[0.62rem] tracking-[0.18em] uppercase sm:flex-row sm:items-center sm:justify-between">
+              <p>Fig. 01, inscribed construction</p>
+              <p>27.7172&deg; N / 85.3240&deg; E</p>
+            </div>
           </div>
         </div>
       </div>

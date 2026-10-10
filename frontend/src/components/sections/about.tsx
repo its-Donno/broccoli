@@ -9,7 +9,7 @@ export function About() {
     <section id="about" className="on-dark bg-night relative isolate overflow-hidden text-paper">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -right-24 -z-10 hidden opacity-70 md:block lg:right-[4%] lg:w-[34rem]"
+        className="pointer-events-none absolute top-16 right-4 -z-10 hidden opacity-80 md:block lg:top-20 lg:right-[3%] lg:w-[26rem]"
       >
         <AboutGraphic className="h-auto w-full" />
       </div>

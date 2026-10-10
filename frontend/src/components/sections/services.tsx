@@ -59,7 +59,7 @@ export function Services() {
 
                   <ul className="text-muted mt-2 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[0.68rem] tracking-[0.14em] uppercase">
                     {service.capabilities.map((capability) => (
-                      <li key={capability} className="flex items-center gap-5">
+                      <li key={capability} className="flex items-center gap-2.5">
                         <span aria-hidden="true" className="bg-line-strong inline-block h-px w-3" />
                         {capability}
                       </li>

@@ -65,7 +65,7 @@ export function Contact() {
             </Reveal>
           </div>
 
-          <Reveal delay={120} className="border-line-night bg-night-raised border p-6 sm:p-9">
+          <Reveal delay={120} className="border-line-night bg-night-raised self-start border p-6 sm:p-9">
             <ContactForm />
           </Reveal>
         </div>
