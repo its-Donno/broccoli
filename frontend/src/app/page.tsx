@@ -1,7 +1,12 @@
+import { Header } from "@/components/site/header";
+
 export default function Home() {
   return (
-    <main id="main">
-      <h1>ArithmeticalNepal</h1>
-    </main>
+    <>
+      <Header />
+      <main id="main">
+        <h1>ArithmeticalNepal</h1>
+      </main>
+    </>
   );
 }
