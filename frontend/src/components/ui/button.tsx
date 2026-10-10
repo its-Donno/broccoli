@@ -70,6 +70,36 @@ export function ButtonLink({
   );
 }
 
+type ButtonAnchorProps = {
+  children: ReactNode;
+  href: string;
+  variant?: Variant;
+  size?: keyof typeof sizes;
+  className?: string;
+  /** Opens in a new tab and marks the link as external. */
+  external?: boolean;
+};
+
+/** For links that leave the site. Uses a plain anchor, not the router. */
+export function ButtonAnchor({
+  children,
+  href,
+  variant = "solid",
+  size = "md",
+  className,
+  external = false,
+}: ButtonAnchorProps) {
+  return (
+    <a
+      href={href}
+      className={cn(base, variants[variant], sizes[size], className)}
+      {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+    >
+      <Content>{children}</Content>
+    </a>
+  );
+}
+
 type ButtonProps = {
   children: ReactNode;
   variant?: Variant;

@@ -77,6 +77,19 @@ export const services = [
   },
 ] as const;
 
+/**
+ * Published work. Empty on purpose: no project is listed until it is real,
+ * described accurately, and cleared for public release.
+ */
+export const projects: ReadonlyArray<{
+  slug: string;
+  title: string;
+  summary: string;
+  stack: ReadonlyArray<string>;
+  href?: string;
+  image?: string;
+}> = [];
+
 export const founders = [
   {
     id: "sijan-bahadur-kunwar",
