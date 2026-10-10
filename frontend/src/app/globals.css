@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/*
+  ArithmeticalNepal design system.
+
+  Palette: warm paper, deep charcoal, single electric blue accent.
+  Everything is expressed as a token so the whole site stays consistent.
+*/
+
+@theme {
+  /* Surfaces */
+  --color-paper: #f6f5f1;
+  --color-paper-raised: #fbfaf7;
+  --color-night: #0b0c0e;
+  --color-night-raised: #121417;
+
+  /* Ink */
+  --color-ink: #101113;
+  --color-ink-soft: #33363b;
+  --color-muted: #6a6e75;
+  --color-muted-night: #9ba1a8;
+
+  /* Accent */
+  --color-accent: #1f45e0;
+  --color-accent-deep: #1733a8;
+  --color-accent-bright: #4a6bff;
+
+  /* Lines */
+  --color-line: rgba(16, 17, 19, 0.1);
+  --color-line-strong: rgba(16, 17, 19, 0.18);
+  --color-line-night: rgba(255, 255, 255, 0.12);
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Layout */
+  --spacing-section: clamp(5rem, 11vw, 9.5rem);
+  --spacing-gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --spacing-shell: 76rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: var(--color-accent-bright);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--spacing-shell);
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .rule {
+    height: 1px;
+    background-color: var(--color-line);
+  }
+}
+
+/* Scroll reveal: the observer in components/ui/reveal.tsx flips the class. */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal[data-state="visible"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* Masked line reveal used by headlines. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.line-mask > span {
+  display: block;
+  transform: translate3d(0, 105%, 0);
+  animation: line-rise 1.05s var(--ease-out-expo) forwards;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@keyframes line-rise {
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.rise {
+  opacity: 0;
+  transform: translate3d(0, 1.5rem, 0);
+  animation: rise-in 0.95s var(--ease-out-expo) forwards;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: var(--path-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .rise,
+  .line-mask > span {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
