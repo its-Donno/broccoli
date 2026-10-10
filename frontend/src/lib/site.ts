@@ -33,9 +33,7 @@ export const services = [
     title: "Web Development",
     summary:
       "Modern, responsive websites and web applications designed for usability, performance, and maintainability.",
-    detail:
-      "We build on a small number of well understood technologies, keep the stack easy to hand over, and treat performance budgets as part of the definition of done.",
-    capabilities: ["Design systems", "Front end architecture", "Performance work"],
+    capabilities: ["Design systems", "Front end architecture", "Performance budgets"],
   },
   {
     id: "mobile",
@@ -43,9 +41,7 @@ export const services = [
     title: "Mobile Applications",
     summary:
       "Mobile experiences built around real user needs, smooth interactions, and reliable functionality.",
-    detail:
-      "Offline behaviour, sensible defaults, and interfaces that stay predictable on imperfect networks and mid range devices.",
-    capabilities: ["Cross platform apps", "Interaction design", "Release pipelines"],
+    capabilities: ["Cross platform apps", "Offline behaviour", "Release pipelines"],
   },
   {
     id: "engineering",
@@ -53,8 +49,6 @@ export const services = [
     title: "Software Engineering",
     summary:
       "Custom software, application architecture, integrations, and practical solutions to complex problems.",
-    detail:
-      "Clear boundaries between modules, typed interfaces, and code that another engineer can read six months from now without guessing.",
     capabilities: ["Service architecture", "API design", "Third party integrations"],
   },
   {
@@ -63,8 +57,6 @@ export const services = [
     title: "UI and UX Design",
     summary:
       "Intuitive interfaces, thoughtful user journeys, and visual systems that make software easier to use.",
-    detail:
-      "We work in the same file as the engineers who ship the work, so the final product matches the intent rather than approximating it.",
     capabilities: ["Interface design", "Prototyping", "Accessibility review"],
   },
   {
@@ -73,8 +65,6 @@ export const services = [
     title: "Automation and Digital Solutions",
     summary:
       "Tools and workflows that reduce repetitive work and improve efficiency.",
-    detail:
-      "Automating a process is only useful when the process itself is sound. We look at the whole flow before automating any part of it.",
     capabilities: ["Workflow automation", "Internal tooling", "Reporting"],
   },
   {
@@ -83,8 +73,6 @@ export const services = [
     title: "Technical Consulting",
     summary:
       "Practical guidance on technology choices, architecture, development strategy, and product direction.",
-    detail:
-      "Honest recommendations, including the option to do less. The goal is a product that holds up after launch, not a longer roadmap.",
     capabilities: ["Architecture reviews", "Stack selection", "Delivery planning"],
   },
 ] as const;
