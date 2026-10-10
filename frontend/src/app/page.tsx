@@ -1,11 +1,12 @@
 import { Header } from "@/components/site/header";
+import { Hero } from "@/components/sections/hero";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main id="main">
-        <h1>ArithmeticalNepal</h1>
+        <Hero />
       </main>
     </>
   );

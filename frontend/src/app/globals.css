@@ -117,6 +117,16 @@
     height: 1px;
     background-color: var(--color-line);
   }
+
+  /* Faint graph paper behind the hero, fading out before the fold. */
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgba(16, 17, 19, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(16, 17, 19, 0.045) 1px, transparent 1px);
+    background-size: 68px 68px;
+    background-position: center top;
+    mask-image: radial-gradient(115% 85% at 50% 0%, #000 0%, transparent 72%);
+  }
 }
 
 /* Scroll reveal: the observer in components/ui/reveal.tsx flips the class. */
@@ -140,11 +150,14 @@
 .line-mask {
   display: block;
   overflow: hidden;
+  /* Room for descenders and the italic serif without clipping. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 .line-mask > span {
   display: block;
-  transform: translate3d(0, 105%, 0);
+  transform: translate3d(0, 110%, 0);
   animation: line-rise 1.05s var(--ease-out-expo) forwards;
   animation-delay: var(--rise-delay, 0ms);
 }
@@ -152,6 +165,20 @@
 @keyframes line-rise {
   to {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Hairlines that draw themselves in. Paths use pathLength="1". */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 1.7s var(--ease-out-expo) forwards;
+  animation-delay: var(--draw-delay, 0ms);
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -190,12 +217,67 @@
   }
 }
 
+/* Hero diagram */
+.graphic-layer {
+  transition: transform 700ms var(--ease-out-expo);
+}
+
+.graphic-layer-outer {
+  transform: translate3d(calc(var(--px, 0) * -11px), calc(var(--py, 0) * -11px), 0);
+}
+
+.graphic-layer-inner {
+  transform: translate3d(calc(var(--px, 0) * 9px), calc(var(--py, 0) * 9px), 0);
+}
+
+.graphic-node-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pop 0.7s var(--ease-out-expo) forwards;
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.graphic-fade {
+  opacity: 0;
+  animation: fade-in 1.2s var(--ease-standard) forwards;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .rise,
-  .line-mask > span {
+  .line-mask > span,
+  .draw,
+  .graphic-node-pop,
+  .graphic-fade {
     opacity: 1;
     transform: none;
     animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .graphic-layer {
+    transition: none;
+    transform: none;
+  }
+
+  .signal {
+    display: none;
   }
 }
