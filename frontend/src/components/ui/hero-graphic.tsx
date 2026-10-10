@@ -152,9 +152,10 @@ export function HeroGraphic({ className }: { className?: string }) {
               stroke="currentColor"
               strokeOpacity="0.18"
               strokeWidth={1}
-              pathLength={1}
               className="draw"
-              style={{ "--draw-delay": `${620 + i * 90}ms` } as React.CSSProperties}
+              style={
+                { "--len": `${R}`, "--draw-delay": `${620 + i * 90}ms` } as React.CSSProperties
+              }
             />
           ))}
 
@@ -164,9 +165,13 @@ export function HeroGraphic({ className }: { className?: string }) {
             strokeOpacity="0.55"
             strokeWidth={2}
             strokeLinejoin="round"
-            pathLength={1}
             className="draw"
-            style={{ "--draw-delay": "260ms" } as React.CSSProperties}
+            style={
+              {
+                "--len": `${(R * Math.sqrt(3)).toFixed(2)}`,
+                "--draw-delay": "260ms",
+              } as React.CSSProperties
+            }
           />
 
           {/* Crossbar: the mark of the wordmark, ending in a node. */}
@@ -175,9 +180,8 @@ export function HeroGraphic({ className }: { className?: string }) {
             stroke="#1f45e0"
             strokeWidth={2}
             strokeLinecap="round"
-            pathLength={1}
             className="draw"
-            style={{ "--draw-delay": "780ms" } as React.CSSProperties}
+            style={{ "--len": "213.5", "--draw-delay": "780ms" } as React.CSSProperties}
           />
           <circle cx={398} cy={300} r={6} fill="#1f45e0" className="graphic-node-pop" />
 

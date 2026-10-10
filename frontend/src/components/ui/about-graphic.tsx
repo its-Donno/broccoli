@@ -13,6 +13,8 @@ const triangles = RINGS.map(({ r, opacity, delay }) => ({
   key: `tri-${r}`,
   delay,
   opacity,
+  /** Equilateral triangle: side = r * sqrt(3). */
+  length: (r * Math.sqrt(3)).toFixed(2),
   d: `M${CENTER} ${CENTER - r}L${CENTER - r * 0.866} ${CENTER + r / 2}L${CENTER + r * 0.866} ${CENTER + r / 2}Z`,
   apexY: CENTER - r,
 }));
@@ -50,9 +52,13 @@ export function AboutGraphic({ className }: { className?: string }) {
             stroke="#ffffff"
             strokeOpacity={triangle.opacity}
             strokeWidth={1}
-            pathLength={1}
             className="draw"
-            style={{ "--draw-delay": `${triangle.delay}ms` } as React.CSSProperties}
+            style={
+              {
+                "--len": triangle.length,
+                "--draw-delay": `${triangle.delay}ms`,
+              } as React.CSSProperties
+            }
           />
           <circle
             cx={CENTER}
@@ -83,9 +89,8 @@ export function AboutGraphic({ className }: { className?: string }) {
         stroke="#4a6bff"
         strokeOpacity="0.5"
         strokeWidth={1.5}
-        pathLength={1}
         className="draw"
-        style={{ "--draw-delay": "560ms" } as React.CSSProperties}
+        style={{ "--len": "285", "--draw-delay": "560ms" } as React.CSSProperties}
       />
     </svg>
   );

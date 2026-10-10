@@ -7,17 +7,16 @@ import { cn } from "@/lib/cn";
  */
 export function PortraitPlate({
   initials,
-  name,
   className,
 }: {
   initials: string;
-  name: string;
   className?: string;
 }) {
   const tick = "absolute size-3 border-accent/60 transition-colors duration-500";
 
   return (
     <div
+      aria-hidden="true"
       className={cn(
         "plate-grid group/plate bg-paper-raised border-line relative aspect-square overflow-hidden border",
         className,
@@ -36,9 +35,8 @@ export function PortraitPlate({
           stroke="#1f45e0"
           strokeWidth={1.5}
           strokeLinecap="round"
-          pathLength={1}
           className="draw"
-          style={{ "--draw-delay": "500ms" } as React.CSSProperties}
+          style={{ "--len": "112", "--draw-delay": "500ms" } as React.CSSProperties}
         />
         <circle cx={245} cy={236} r={4} fill="#1f45e0" className="graphic-node-pop" style={{ animationDelay: "900ms" } as React.CSSProperties} />
         <circle cx={200} cy={200} r={128} stroke="currentColor" strokeOpacity="0.08" strokeWidth={1} strokeDasharray="1 7" />
@@ -67,8 +65,6 @@ export function PortraitPlate({
       >
         {initials}
       </span>
-
-      <span className="sr-only">{name}</span>
     </div>
   );
 }

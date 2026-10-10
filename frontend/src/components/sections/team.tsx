@@ -21,7 +21,7 @@ export function Team() {
         <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-20 lg:gap-x-16">
           {founders.map((founder, i) => (
             <Reveal key={founder.id} delay={i * 110} as="article" className="group/founder flex flex-col">
-              <PortraitPlate initials={founder.initials} name={founder.name} />
+              <PortraitPlate initials={founder.initials} />
 
               <div className="mt-7 flex items-baseline gap-4">
                 <p className="font-mono text-accent text-[0.68rem] tracking-[0.2em]">

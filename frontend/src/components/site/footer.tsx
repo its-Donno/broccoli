@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import { CopyrightYear } from "@/components/ui/copyright-year";
 import { Mark } from "@/components/ui/mark";
 import { navigation, site, socialLinks } from "@/lib/site";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="on-dark bg-night border-line-night border-t text-paper">
       <div className="shell py-16 lg:py-20">
@@ -82,7 +82,11 @@ export function Footer() {
 
         <div className="border-line-night mt-14 flex flex-col gap-4 border-t pt-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-muted-night text-[0.8rem]">
-            &copy; {year} {site.name}. All rights reserved.
+            &copy;{" "}
+            <Suspense fallback={null}>
+              <CopyrightYear />
+            </Suspense>{" "}
+            {site.name}. All rights reserved.
           </p>
           <p className="text-muted-night flex items-center gap-2.5 text-[0.8rem]">
             <span aria-hidden="true" className="bg-accent-bright inline-block size-1.5 rounded-full" />
